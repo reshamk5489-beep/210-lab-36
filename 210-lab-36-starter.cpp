@@ -21,6 +21,7 @@ int main()
 
     file.close();
 
+    string insertStr;
     bool isExit = false;
 
     while (isExit == false)
@@ -31,12 +32,44 @@ int main()
         switch (choice)
         {
             case 1:
+                cout << "Please enter a string to insert: ";
+                cin >> insertStr;
+                tree.insertNode(insertStr);
+
                 break;
             case 2:
+                cout << "Please enter a string to remove: ";
+                cin >> insertStr;
+                tree.remove(insertStr);
+
                 break;
             case 3:
+                cout << "Please enter a string to search for: ";
+                cin >> insertStr;
+                if (tree.searchNode(insertStr))
+                {
+                    cout << insertStr << " was found in the tree." << endl;
+                }
+                else    
+                {
+                    cout << insertStr << " was not found in the tree." << endl;
+                }
+
                 break;
             case 4:
+                cout << "Please enter a string to modify: ";
+                cin >> insertStr;
+                if (tree.searchNode(insertStr))
+                {
+                    tree.remove(insertStr);
+                    cout << "Enter the new string: ";
+                    cin >> insertStr;
+                    tree.insertNode(insertStr);
+                }
+                else
+                {
+                    cout << insertStr << " was not found in the tree." << endl;
+                }
                 break;
             case 5:
                 tree.displayInOrder();
@@ -48,7 +81,8 @@ int main()
                 tree.displayPostOrder();
                 break;
             case 8:
-                return 0;
+                isExit = true;
+                break;
         }
     }
   
