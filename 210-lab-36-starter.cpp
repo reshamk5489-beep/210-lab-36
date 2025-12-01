@@ -4,17 +4,21 @@
 #include <string>
 using namespace std;
 
-int main() 
+int main()
 {
-    StringBinaryTree tree;
+   ifstream file;
+   file.open("codes.txt");
+   string code;
+   StringBinaryTree tree;
 
-    tree.insertNode("AbCD123");
-    tree.insertNode("EfgH456");
-    tree.insertNode("IjkLm789");
-    tree.insertNode("NoPqrs101");
-    tree.insertNode("TUVwx121");
+   while (getline(file, code))
+   {
+       tree.insertNode(code);
+   }
 
-    tree.displayPostOrder();
-    
-    return 0;
+   file.close();
+
+   tree.displayInOrder();
+  
+   return 0;
 }
