@@ -6,16 +6,15 @@ using namespace std;
 
 int main() 
 {
-    ifstream file;
-    file.open("codes.txt");
-    string code;
     StringBinaryTree tree;
 
-    while (getline(file, code)) {
-        tree.insertNode(code);
-    }
+    tree.insertNode("AbCD123");
+    tree.insertNode("EfgH456");
+    tree.insertNode("IjkLm789");
+    tree.insertNode("NoPqrs101");
+    tree.insertNode("TUVwx121");
 
-    file.close();
- 
+    tree.displayPostOrder();
+    
     return 0;
 }
